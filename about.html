@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>What Is ATE? · The Awareness Theory of Everything</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An accessible introduction to the Awareness Theory of Everything (ATE).">
+
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+  <script src="data.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    section {
+      border-left: 14px solid #6aa84f; // ring 1
+    }
+  </style>
+</head>
+
+<body>
+<div id="app">
+
+<header>
+  <h1>The ATE Universe</h1>
+  <h2>What Is the Awareness Theory of Everything?</h1>
+  <p>A gentle entry point into a radically simple idea about reality.</p>
+</header>
+
+<!-- Floating Menu -->
+<nav id="floating-menu">
+  <ul>
+    <li v-for="page in pages" :key="page.url">
+      <a :href="page.url">{{ page.label }}</a>
+    </li>
+  </ul>
+</nav>
+
+<main>
+
+  <section>
+    <h2>Authorship</h2>
+    <p>
+      The Awareness Theory of Everything (ATE) is developed by
+      <strong>Nathan Hamaoui</strong> as an independent foundational framework
+      for physics, emergence, and reality.
+    </p>
+  </section>
+
+  <section>
+    <h2>A Different Starting Point</h2>
+    <p>
+      Most physical theories begin with matter, energy, or spacetime as their
+      fundamental ingredients. The Awareness Theory of Everything (ATE) begins
+      somewhere even more basic:
+    </p>
+
+    <blockquote>
+      That something exists at all — and that existence is inseparable from awareness.
+    </blockquote>
+
+    <p>
+      ATE does not treat awareness as a byproduct of complex brains, nor as a
+      mystical substance. Instead, awareness is taken in a strictly minimal,
+      structural sense: the capacity for distinction, recognition, or
+      classification.
+    </p>
+  </section>
+
+  <section>
+    <h2>What Does “Awareness” Mean Here?</h2>
+    <p>
+      In ATE, awareness does <em>not</em> mean consciousness, thought, emotion,
+      or self-reflection. Those are higher-level emergent phenomena.
+    </p>
+
+    <p>
+      At its most primitive level, awareness simply means that distinctions can
+      occur at all — that something can be <em>this</em> rather than <em>that</em>.
+      From this minimal capability, increasingly complex structures can be built.
+    </p>
+
+    <p>
+      The central claim of ATE is that once such minimal awareness exists, a
+      recursive process of classification and stabilization naturally unfolds,
+      giving rise to spacetime, particles, forces, chemistry, biology, and beyond.
+    </p>
+  </section>
+
+  <section>
+    <h2>Why Take This Approach?</h2>
+    <p>
+      Modern physics has achieved extraordinary predictive success, yet it rests
+      on a patchwork of foundational assumptions: spacetime here, quantum fields
+      there, initial conditions inserted by hand.
+    </p>
+
+    <p>
+      ATE explores whether a single structural principle — recursive awareness —
+      can underlie all of these without requiring separate postulates for each
+      domain.
+    </p>
+
+    <p>
+      The goal is not to replace existing physics, but to explain why its
+      structures exist at all.
+    </p>
+  </section>
+
+  <section>
+    <h2>What ATE Is — and Is Not</h2>
+    <p>
+      ATE is:
+    </p>
+    <ul>
+      <li>a structural framework rather than a speculative philosophy</li>
+      <li>compatible with empirical science and falsifiability</li>
+      <li>intended to unify physics, life, and cognition under a common logic</li>
+    </ul>
+
+    <p>
+      ATE is <em>not</em>:
+    </p>
+    <ul>
+      <li>a spiritual or religious doctrine</li>
+      <li>a denial of existing physical theories</li>
+      <li>a claim that human consciousness creates reality</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How to Explore Further</h2>
+    <p>
+      You can continue at whatever depth feels right:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Ring I:</strong> Conceptual explanations and FAQs for general readers
+      </li>
+      <li>
+        <strong>Ring II:</strong> Structural bridges to physics, emergence, and testable predictions
+      </li>
+      <li>
+        <strong>Ring III:</strong> Formal papers, appendices, and archival records
+      </li>
+    </ul>
+
+    <p>
+      There is no required order. ATE is designed to be entered from many angles.
+    </p>
+  </section>
+
+  <div class="next">
+    <a href="index.html">← Home</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="why-awareness.html">Why Awareness? →</a>
+  </div>
+
+</main>
+
+
+<footer>
+  © 2017-<span id="year"></span> Nathan Hamaoui · Awareness Theory of Everything (ATE)
+  <br>Independent research · All rights reserved
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+const { createApp } = Vue;
+
+createApp({
+  data() {
+    return {
+      showEq: [true, true], // default visible
+      pages: ring1pages,
+      
+      prevPage: { url: 'big-ideas.html', label: 'Core Ideas' },
+      nextPage: { url: 'emergence.html', label: 'Emergence' }
+    };
+  },
+  methods: {
+    toggleEq(index) {
+      this.showEq[index] = !this.showEq[index];
+      // Re-render MathJax
+      MathJax.typesetPromise();
+    }
+  }
+}).mount('#app');
+</script>
+
+</body>
+</html>
